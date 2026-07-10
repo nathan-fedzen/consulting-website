@@ -1,0 +1,76 @@
+heroEyebrow: "Healthcare Revenue Cycle Consulting"
+heroSubtext: >-
+  Symmetry Health Care Consulting helps providers streamline billing, reduce
+  denials, and build a revenue cycle that keeps pace with tomorrow's
+  challenges — independent advice, hands-on execution.
+
+stats:
+  - label: "Years in RCM"
+    value: 15
+    suffix: "+"
+  - label: "Clean Claim Rate"
+    value: 98
+    suffix: "%"
+  - label: "Recovered in Denials"
+    value: 2
+    prefix: "$"
+    suffix: "M+"
+  - label: "Avg. A/R Reduction"
+    value: 30
+    suffix: " Days"
+
+whoWeServeHeading: "Built for growing healthcare organizations"
+whoWeServeText: >-
+  [REPLACE WITH TARGET CLIENT DESCRIPTION: 2-3 sentences on who Symmetry
+  works best with — practice size, specialty focus, and the kind of revenue
+  cycle challenges they're typically facing when they reach out.]
+
+clientTypes:
+  - "Physician Practices"
+  - "Ambulatory Surgery Centers"
+  - "Behavioral Health Providers"
+  - "Specialty Care Groups"
+
+expertise:
+  - title: "Revenue Cycle Assessments"
+    description: >-
+      A full front-to-back review of your billing, coding, and collections
+      workflow to find where revenue is leaking.
+  - title: "Denial Management"
+    description: >-
+      Root-cause analysis of claim denials with a corrective action plan to
+      reduce them going forward.
+  - title: "Coding & Compliance Audits"
+    description: >-
+      Independent audits to confirm documentation and coding accuracy and
+      reduce compliance risk.
+  - title: "Interim RCM Leadership"
+    description: >-
+      Hands-on, fractional leadership to stabilize your revenue cycle team
+      during a transition or growth phase.
+
+credibilityText: >-
+  With years of hands-on experience inside hospital and physician practice
+  revenue cycles, Symmetry Health Care Consulting brings an independent,
+  no-nonsense perspective to your billing and collections operation — no
+  software to sell, no conflicts of interest, just a plan built around
+  getting you paid.
+
+credentials:
+  - "HFMA Member"
+  - "CRCR Certified"
+  - "15+ Years in Healthcare Finance"
+  - "Independent & Vendor-Neutral"
+
+linkedInHeading: "Insights from the field"
+linkedInText: >-
+  Follow along for commentary on denials, payer trends, and what's actually
+  working in healthcare revenue cycle management.
+
+# Paste a LinkedIn "Embed this post" <iframe> code per entry (up to 3 shown).
+# Leave empty to show placeholder cards instead.
+linkedinEmbeds: []
+
+consultationText: >-
+  Pick a time that works for you below, or send a few details and we'll
+  follow up to find a time.

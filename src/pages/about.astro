@@ -1,18 +1,19 @@
 ---
+import { getEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 
-// REPLACE with the consultant's real education history.
-const education = [
-  'REPLACE: e.g. M.H.A., Healthcare Administration, [University]',
-  'REPLACE: e.g. B.S., Finance, [University]',
-];
+const about = await getEntry('pages', 'about');
+if (!about) throw new Error('Missing about content entry');
 
-// REPLACE with the consultant's real certifications.
-const certifications = [
-  'REPLACE: e.g. CRCR (Certified Revenue Cycle Representative)',
-  'REPLACE: e.g. CHFP (Certified Healthcare Financial Professional)',
-  'REPLACE: e.g. CPC (Certified Professional Coder)',
-];
+const {
+  consultantName,
+  headshotImage,
+  backgroundText,
+  whyStartedText,
+  philosophyText,
+  education = [],
+  certifications = [],
+} = about.data;
 ---
 
 <Layout
@@ -24,40 +25,38 @@ const certifications = [
       <div data-reveal class="md:col-span-2">
         <p class="text-sm font-semibold uppercase tracking-wide text-brand-teal">About</p>
         <div class="mt-4 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
-          <div
-            class="flex h-32 w-32 shrink-0 items-center justify-center rounded-full bg-brand-mist text-brand-slate/50 ring-1 ring-brand-mist"
-            aria-hidden="true"
-          >
-            <!-- REPLACE with a real professional headshot -->
-            <svg viewBox="0 0 24 24" class="h-14 w-14" fill="currentColor">
-              <path
-                d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-4.42 0-8 2.24-8 5v3h16v-3c0-2.76-3.58-5-8-5z"
-              ></path>
-            </svg>
-          </div>
-          <h1 class="text-4xl font-bold text-brand-navy">[Consultant Name], Founder</h1>
+          {
+            headshotImage ? (
+              <img
+                src={headshotImage}
+                alt={consultantName}
+                class="h-32 w-32 shrink-0 rounded-full object-cover ring-1 ring-brand-mist"
+              />
+            ) : (
+              <div
+                class="flex h-32 w-32 shrink-0 items-center justify-center rounded-full bg-brand-mist text-brand-slate/50 ring-1 ring-brand-mist"
+                aria-hidden="true"
+              >
+                <svg viewBox="0 0 24 24" class="h-14 w-14" fill="currentColor">
+                  <path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-4.42 0-8 2.24-8 5v3h16v-3c0-2.76-3.58-5-8-5z" />
+                </svg>
+              </div>
+            )
+          }
+          <h1 class="text-4xl font-bold text-brand-navy">{consultantName}</h1>
         </div>
 
         <h2 class="mt-8 text-xl font-semibold text-brand-navy">Background</h2>
         <p class="mt-3 text-brand-slate">
-          [REPLACE WITH BIO: 2-3 paragraphs on background &mdash; years of
-          experience in healthcare revenue cycle management, prior roles
-          (health system, physician practice, payer side, etc.), and the
-          kinds of organizations you've worked with.]
+          {backgroundText}
         </p>
 
         <h2 class="mt-8 text-xl font-semibold text-brand-navy">Why I Started Symmetry</h2>
         <p class="mt-3 text-brand-slate">
-          [REPLACE WITH FOUNDING STORY: What led to starting an independent
-          consulting practice &mdash; a gap you kept seeing in the industry,
-          a frustration with vendor-driven advice, a moment that made you
-          want to do this on your own terms.]
+          {whyStartedText}
         </p>
         <p class="mt-4 text-brand-slate">
-          [REPLACE WITH PHILOSOPHY: What makes your approach different &mdash;
-          e.g. independence from any software or billing vendor, hands-on
-          involvement rather than a slide deck, focus on practical fixes
-          your team can sustain after the engagement ends.]
+          {philosophyText}
         </p>
       </div>
       <div data-reveal style="transition-delay: 120ms" class="space-y-6">

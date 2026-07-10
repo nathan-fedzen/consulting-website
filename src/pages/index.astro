@@ -1,57 +1,31 @@
 ---
+import { getEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 
-const expertise = [
-  {
-    title: 'Revenue Cycle Assessments',
-    description:
-      'A full front-to-back review of your billing, coding, and collections workflow to find where revenue is leaking.',
-  },
-  {
-    title: 'Denial Management',
-    description:
-      'Root-cause analysis of claim denials with a corrective action plan to reduce them going forward.',
-  },
-  {
-    title: 'Coding & Compliance Audits',
-    description:
-      'Independent audits to confirm documentation and coding accuracy and reduce compliance risk.',
-  },
-  {
-    title: 'Interim RCM Leadership',
-    description:
-      'Hands-on, fractional leadership to stabilize your revenue cycle team during a transition or growth phase.',
-  },
-];
+const home = await getEntry('pages', 'home');
+const site = await getEntry('settings', 'site');
+if (!home || !site) throw new Error('Missing home or site content entry');
 
-// REPLACE with the client's real numbers once available.
-const stats = [
-  { label: 'Years in RCM', target: 15, prefix: '', suffix: '+' },
-  { label: 'Clean Claim Rate', target: 98, prefix: '', suffix: '%' },
-  { label: 'Recovered in Denials', target: 2, prefix: '$', suffix: 'M+' },
-  { label: 'Avg. A/R Reduction', target: 30, prefix: '', suffix: ' Days' },
-];
+const {
+  heroEyebrow,
+  heroSubtext,
+  stats = [],
+  whoWeServeHeading,
+  whoWeServeText,
+  clientTypes = [],
+  expertise = [],
+  credibilityText,
+  credentials = [],
+  linkedInHeading,
+  linkedInText,
+  linkedinEmbeds = [],
+  consultationText,
+} = home.data;
 
-// REPLACE with the client's actual target client segments.
-const clientTypes = [
-  'Physician Practices',
-  'Ambulatory Surgery Centers',
-  'Behavioral Health Providers',
-  'Specialty Care Groups',
-];
-
-// REPLACE with the client's real affiliations/certifications.
-const credentials = ['HFMA Member', 'CRCR Certified', '15+ Years in Healthcare Finance', 'Independent & Vendor-Neutral'];
-
-// REPLACE with the consultant's real LinkedIn profile URL.
-const linkedInUrl = 'https://www.linkedin.com/in/REPLACE-ME';
-
-// REPLACE with the client's real phone number.
-const phoneDisplay = '(555) 555-0123';
-const phoneHref = 'tel:+15555550123';
-
-const tagline = 'Balancing today, optimizing tomorrow.';
+const { tagline, phoneDisplay, phoneHref, linkedInUrl } = site.data;
 const taglineWords = tagline.split(' ');
+
+const linkedInSlots = Array.from({ length: 3 }, (_, i) => linkedinEmbeds[i] ?? null);
 ---
 
 <Layout title="Home">
@@ -63,7 +37,7 @@ const taglineWords = tagline.split(' ');
     >
       <div>
         <p class="text-sm font-semibold uppercase tracking-wide text-brand-teal">
-          Healthcare Revenue Cycle Consulting
+          {heroEyebrow}
         </p>
         <h1 class="mt-4 text-4xl font-bold leading-tight text-white md:text-5xl">
           {
@@ -75,10 +49,7 @@ const taglineWords = tagline.split(' ');
           }
         </h1>
         <p class="mt-6 text-lg text-slate-200">
-          Symmetry Health Care Consulting helps providers streamline billing,
-          reduce denials, and build a revenue cycle that keeps pace with
-          tomorrow's challenges &mdash; independent advice, hands-on
-          execution.
+          {heroSubtext}
         </p>
         <div class="mt-8 flex flex-wrap gap-4">
           <a
@@ -108,7 +79,7 @@ const taglineWords = tagline.split(' ');
                 <dt class="text-sm text-slate-300">{stat.label}</dt>
                 <dd
                   class="mt-1 text-3xl font-bold tabular-nums"
-                  data-counter-target={stat.target}
+                  data-counter-target={stat.value}
                   data-counter-prefix={stat.prefix}
                   data-counter-suffix={stat.suffix}
                 >
@@ -126,12 +97,9 @@ const taglineWords = tagline.split(' ');
   <section class="mx-auto max-w-6xl px-6 py-20">
     <div data-reveal class="max-w-2xl">
       <p class="text-sm font-semibold uppercase tracking-wide text-brand-teal">Who We Serve</p>
-      <h2 class="mt-3 text-3xl font-bold text-brand-navy">Built for growing healthcare organizations</h2>
+      <h2 class="mt-3 text-3xl font-bold text-brand-navy">{whoWeServeHeading}</h2>
       <p class="mt-4 text-brand-slate">
-        [REPLACE WITH TARGET CLIENT DESCRIPTION: 2-3 sentences on who Symmetry
-        works best with &mdash; practice size, specialty focus, and the kind
-        of revenue cycle challenges they're typically facing when they reach
-        out.]
+        {whoWeServeText}
       </p>
     </div>
     <div class="mt-8 flex flex-wrap gap-3">
@@ -187,11 +155,7 @@ const taglineWords = tagline.split(' ');
         <p class="text-sm font-semibold uppercase tracking-wide text-brand-teal">Credibility</p>
         <h2 class="mt-3 text-3xl font-bold text-brand-navy">Why providers trust Symmetry</h2>
         <p class="mt-4 text-brand-slate">
-          With years of hands-on experience inside hospital and physician
-          practice revenue cycles, Symmetry Health Care Consulting brings an
-          independent, no-nonsense perspective to your billing and
-          collections operation &mdash; no software to sell, no conflicts of
-          interest, just a plan built around getting you paid.
+          {credibilityText}
         </p>
         <div class="mt-6 flex flex-wrap gap-3">
           {
@@ -236,10 +200,9 @@ const taglineWords = tagline.split(' ');
       <div data-reveal class="flex flex-wrap items-end justify-between gap-4">
         <div class="max-w-2xl">
           <p class="text-sm font-semibold uppercase tracking-wide text-brand-teal">On LinkedIn</p>
-          <h2 class="mt-3 text-3xl font-bold text-brand-navy">Insights from the field</h2>
+          <h2 class="mt-3 text-3xl font-bold text-brand-navy">{linkedInHeading}</h2>
           <p class="mt-3 text-brand-slate">
-            Follow along for commentary on denials, payer trends, and what's
-            actually working in healthcare revenue cycle management.
+            {linkedInText}
           </p>
         </div>
         <a
@@ -258,27 +221,31 @@ const taglineWords = tagline.split(' ');
       </div>
 
       <!--
-        To feature a real post: open the post on LinkedIn, click the "..."
-        menu, choose "Embed this post," and paste the resulting <iframe>
-        in place of one of the placeholder cards below.
+        Editable from the CMS: "LinkedIn Post Embeds" on the Home page. Paste
+        an embed code from a public post (LinkedIn "..." menu → "Embed this
+        post"). Empty slots fall back to a placeholder card.
       -->
       <div class="mt-10 grid gap-6 md:grid-cols-3">
         {
-          [0, 1, 2].map((i) => (
-            <div
-              data-reveal
-              style={`transition-delay: ${i * 80}ms`}
-              class="flex min-h-[280px] flex-col items-center justify-center rounded-lg border-2 border-dashed border-brand-slate/30 bg-white p-6 text-center"
-            >
-              <svg viewBox="0 0 24 24" class="h-8 w-8 text-brand-slate/40" fill="currentColor" aria-hidden="true">
-                <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
-              </svg>
-              <p class="mt-3 text-sm font-medium text-brand-slate">LinkedIn post embed</p>
-              <p class="mt-1 text-xs text-brand-slate/70">
-                Paste an embed code from a public post here
-              </p>
-            </div>
-          ))
+          linkedInSlots.map((embedHtml, i) =>
+            embedHtml ? (
+              <div data-reveal style={`transition-delay: ${i * 80}ms`} set:html={embedHtml} />
+            ) : (
+              <div
+                data-reveal
+                style={`transition-delay: ${i * 80}ms`}
+                class="flex min-h-[280px] flex-col items-center justify-center rounded-lg border-2 border-dashed border-brand-slate/30 bg-white p-6 text-center"
+              >
+                <svg viewBox="0 0 24 24" class="h-8 w-8 text-brand-slate/40" fill="currentColor" aria-hidden="true">
+                  <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
+                </svg>
+                <p class="mt-3 text-sm font-medium text-brand-slate">LinkedIn post embed</p>
+                <p class="mt-1 text-xs text-brand-slate/70">
+                  Paste an embed code from a public post here
+                </p>
+              </div>
+            )
+          )
         }
       </div>
     </div>
@@ -291,9 +258,8 @@ const taglineWords = tagline.split(' ');
         <p class="text-sm font-semibold uppercase tracking-wide text-brand-teal">Get Started</p>
         <h2 class="mt-3 text-3xl font-bold text-white">Schedule a consultation</h2>
         <p class="mt-3 text-slate-200">
-          Pick a time that works for you below, or send a few details and
-          we'll follow up to find a time. Prefer to talk now? Call for a free
-          discovery call:
+          {consultationText} Prefer to talk now? Call for a free discovery
+          call:
           <a href={phoneHref} class="font-semibold text-brand-teal hover:underline">{phoneDisplay}</a>.
         </p>
       </div>
@@ -310,10 +276,9 @@ const taglineWords = tagline.split(' ');
             </span>
             <p class="text-sm font-semibold text-brand-navy">Book a time directly</p>
           </div>
-          <!-- REPLACE data-url with the client's real Calendly scheduling link -->
           <div
             class="calendly-inline-widget"
-            data-url="https://calendly.com/REPLACE-WITH-CLIENT-CALENDLY-LINK"
+            data-url={site.data.calendlyUrl}
             style="min-width:280px;height:600px;"
           >
           </div>

@@ -1,0 +1,127 @@
+# Decap CMS configuration for Symmetry Health Care Consulting.
+#
+# Auth is handled by DecapBridge (https://decapbridge.com) so the client
+# can log in with just an email invite — no GitHub account needed.
+#
+# SETUP (one-time, see README for full steps):
+#   1. Create a free account at https://decapbridge.com
+#   2. Add a site, linking it to the "nathan-fedzen/consulting-website" repo
+#      via a GitHub personal access token (repo contents read/write).
+#   3. Copy the "identity_url" DecapBridge generates for this site and
+#      paste it below, replacing the REPLACE-WITH-DECAPBRIDGE-SITE-ID part.
+#   4. Invite the client's email from the DecapBridge site dashboard.
+
+backend:
+  name: git-gateway
+  repo: nathan-fedzen/consulting-website
+  branch: main
+  identity_url: https://auth.decapbridge.com/sites/REPLACE-WITH-DECAPBRIDGE-SITE-ID
+  gateway_url: https://gateway.decapbridge.com
+
+# Lets a developer test this admin panel against the local filesystem by
+# running `npx decap-server` — only activates when visiting /admin on
+# localhost, has no effect in production.
+local_backend: true
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "site"
+        label: "Global Settings"
+        file: "src/content/settings/site.yaml"
+        description: "Phone, email, and links used across the whole site."
+        fields:
+          - { label: "Company Name", name: "companyName", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Phone (display)", name: "phoneDisplay", widget: "string", hint: "e.g. (555) 555-0123" }
+          - { label: "Phone (call link)", name: "phoneHref", widget: "string", hint: "Format: tel:+15551234567" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "LinkedIn Profile URL", name: "linkedInUrl", widget: "string" }
+          - { label: "Calendly Scheduling URL", name: "calendlyUrl", widget: "string" }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "home"
+        label: "Home Page"
+        file: "src/content/pages/home.yaml"
+        fields:
+          - { label: "Hero Eyebrow Text", name: "heroEyebrow", widget: "string" }
+          - { label: "Hero Subtext", name: "heroSubtext", widget: "text" }
+          - label: "Stats"
+            name: "stats"
+            widget: "list"
+            summary: "{{label}}: {{prefix}}{{value}}{{suffix}}"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Value", name: "value", widget: "number", value_type: "int" }
+              - { label: "Prefix", name: "prefix", widget: "string", required: false }
+              - { label: "Suffix", name: "suffix", widget: "string", required: false }
+          - { label: "Who We Serve — Heading", name: "whoWeServeHeading", widget: "string" }
+          - { label: "Who We Serve — Text", name: "whoWeServeText", widget: "text" }
+          - label: "Who We Serve — Client Type Tags"
+            name: "clientTypes"
+            widget: "list"
+          - label: "Areas of Expertise"
+            name: "expertise"
+            widget: "list"
+            summary: "{{title}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - { label: "Credibility — Text", name: "credibilityText", widget: "text" }
+          - label: "Credibility — Credentials / Affiliations"
+            name: "credentials"
+            widget: "list"
+          - { label: "LinkedIn Section — Heading", name: "linkedInHeading", widget: "string" }
+          - { label: "LinkedIn Section — Text", name: "linkedInText", widget: "text" }
+          - label: "LinkedIn Post Embeds (up to 3 shown)"
+            name: "linkedinEmbeds"
+            widget: "list"
+            required: false
+            hint: "On a public LinkedIn post, click the \"...\" menu → \"Embed this post\", then paste the code here."
+            field: { label: "Embed Code", name: "embed", widget: "text" }
+          - { label: "Consultation Section — Intro Text", name: "consultationText", widget: "text" }
+
+      - name: "about"
+        label: "About Page"
+        file: "src/content/pages/about.yaml"
+        fields:
+          - { label: "Consultant Name & Title", name: "consultantName", widget: "string", hint: "e.g. Jane Smith, Founder" }
+          - { label: "Headshot Photo", name: "headshotImage", widget: "image", required: false }
+          - { label: "Background", name: "backgroundText", widget: "text" }
+          - { label: "Why I Started Symmetry", name: "whyStartedText", widget: "text" }
+          - { label: "Philosophy", name: "philosophyText", widget: "text" }
+          - label: "Education"
+            name: "education"
+            widget: "list"
+          - label: "Certifications"
+            name: "certifications"
+            widget: "list"
+
+      - name: "services"
+        label: "Services Page"
+        file: "src/content/pages/services.yaml"
+        fields:
+          - { label: "Page Heading", name: "servicesHeading", widget: "string" }
+          - { label: "Page Intro", name: "servicesIntro", widget: "text" }
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            summary: "{{title}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - { label: "Bottom CTA — Heading", name: "servicesCtaHeading", widget: "string" }
+          - { label: "Bottom CTA — Text", name: "servicesCtaText", widget: "text" }
+
+      - name: "contact"
+        label: "Contact Page"
+        file: "src/content/pages/contact.yaml"
+        fields:
+          - { label: "Page Heading", name: "contactHeading", widget: "string" }
+          - { label: "Page Intro", name: "contactIntro", widget: "text" }

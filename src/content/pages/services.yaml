@@ -1,0 +1,40 @@
+servicesHeading: "Consulting built around one goal: getting you paid."
+servicesIntro: >-
+  Every engagement starts with understanding your specific revenue cycle —
+  then we build a plan around the areas that will move the needle fastest.
+
+services:
+  - title: "Revenue Cycle Assessments"
+    description: >-
+      A comprehensive review of your front-end registration, charge capture,
+      coding, billing, and collections processes to identify where revenue
+      is being lost and how to recover it.
+  - title: "Denial Management"
+    description: >-
+      Detailed root-cause analysis of your claim denials, benchmarked
+      against industry standards, with a prioritized action plan to reduce
+      denial rates and speed up appeals.
+  - title: "Coding & Compliance Audits"
+    description: >-
+      Independent chart and claims audits to verify documentation and coding
+      accuracy, reduce compliance exposure, and prepare for payer or
+      regulatory review.
+  - title: "Accounts Receivable Follow-Up"
+    description: >-
+      Hands-on review and cleanup of aging A/R, including payer follow-up
+      strategy, write-off policy review, and workflow recommendations to
+      keep A/R days down long-term.
+  - title: "Payer Contracting Support"
+    description: >-
+      Analysis of existing payer contracts and reimbursement rates to
+      identify underpayment and support negotiation of better terms.
+  - title: "Interim RCM Leadership"
+    description: >-
+      Fractional or interim leadership for your billing office or revenue
+      cycle department during a transition, system conversion, or period of
+      rapid growth.
+
+servicesCtaHeading: "Not sure where to start?"
+servicesCtaText: >-
+  Most engagements begin with a revenue cycle assessment. Reach out and
+  we'll talk through your situation on a free introductory call.

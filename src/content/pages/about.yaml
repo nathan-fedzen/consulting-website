@@ -1,0 +1,32 @@
+consultantName: "[Consultant Name], Founder"
+
+# Upload a professional headshot via the CMS media picker. Leave empty to
+# show the placeholder avatar icon.
+headshotImage: ""
+
+backgroundText: >-
+  [REPLACE WITH BIO: 2-3 paragraphs on background — years of experience in
+  healthcare revenue cycle management, prior roles (health system, physician
+  practice, payer side, etc.), and the kinds of organizations you've worked
+  with.]
+
+whyStartedText: >-
+  [REPLACE WITH FOUNDING STORY: What led to starting an independent
+  consulting practice — a gap you kept seeing in the industry, a frustration
+  with vendor-driven advice, a moment that made you want to do this on your
+  own terms.]
+
+philosophyText: >-
+  [REPLACE WITH PHILOSOPHY: What makes your approach different — e.g.
+  independence from any software or billing vendor, hands-on involvement
+  rather than a slide deck, focus on practical fixes your team can sustain
+  after the engagement ends.]
+
+education:
+  - "REPLACE: e.g. M.H.A., Healthcare Administration, [University]"
+  - "REPLACE: e.g. B.S., Finance, [University]"
+
+certifications:
+  - "REPLACE: e.g. CRCR (Certified Revenue Cycle Representative)"
+  - "REPLACE: e.g. CHFP (Certified Healthcare Financial Professional)"
+  - "REPLACE: e.g. CPC (Certified Professional Coder)"

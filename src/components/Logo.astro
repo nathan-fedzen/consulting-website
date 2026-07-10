@@ -5,31 +5,21 @@ interface Props {
 }
 
 const { variant = 'dark', showWordmark = true } = Astro.props;
-const textColor = variant === 'light' ? 'text-white' : 'text-brand-navy';
-const iconColor = variant === 'light' ? 'text-white' : 'text-brand-teal';
+const mainColor = variant === 'light' ? 'text-white' : 'text-brand-navy';
+const subColor = variant === 'light' ? 'text-slate-300' : 'text-brand-slate';
 ---
 
 <a href="/" class="flex items-center gap-2">
-  <svg
-    viewBox="0 0 32 32"
-    class:list={['h-7 w-7 shrink-0', iconColor]}
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-  >
-    <path
-      d="M16 5v20M16 5l-9 5.5M16 5l9 5.5M7 10.5l-4.5 8h9l-4.5-8zM25 10.5l-4.5 8h9l-4.5-8zM7 18.5a4.5 4.5 0 009 0M25 18.5a4.5 4.5 0 009 0"
-      stroke="currentColor"
-      stroke-width="1.6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    ></path>
-    <path d="M9.5 27h13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
-  </svg>
+  <img
+    src="/symmetry_logo-cropped.png"
+    alt="Symmetry Health Care Consulting"
+    class="h-9 w-9 shrink-0 object-contain"
+  />
   {
     showWordmark && (
-      <span class:list={['text-lg font-semibold tracking-tight', textColor]}>
-        Symmetry <span class="font-normal">Health Care Consulting</span>
+      <span class="text-lg leading-tight tracking-tight">
+        <span class:list={['font-bold', mainColor]}>Symmetry</span>{' '}
+        <span class:list={['font-normal', subColor]}>Healthcare Consulting</span>
       </span>
     )
   }

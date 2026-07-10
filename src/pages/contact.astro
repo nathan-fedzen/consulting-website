@@ -1,5 +1,13 @@
 ---
+import { getEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+
+const contactPage = await getEntry('pages', 'contact');
+const site = await getEntry('settings', 'site');
+if (!contactPage || !site) throw new Error('Missing contact or site content entry');
+
+const { contactHeading, contactIntro } = contactPage.data;
+const { email, phoneDisplay, phoneHref } = site.data;
 ---
 
 <Layout
@@ -9,10 +17,9 @@ import Layout from '../layouts/Layout.astro';
   <section class="bg-brand-navy">
     <div class="mx-auto max-w-6xl px-6 py-16">
       <p class="text-sm font-semibold uppercase tracking-wide text-brand-teal">Contact</p>
-      <h1 class="mt-3 text-4xl font-bold text-white">Let's talk about your revenue cycle.</h1>
+      <h1 class="mt-3 text-4xl font-bold text-white">{contactHeading}</h1>
       <p class="mt-4 max-w-2xl text-slate-200">
-        Fill out the form below or reach out directly. We typically respond
-        within one business day.
+        {contactIntro}
       </p>
     </div>
   </section>
@@ -24,13 +31,13 @@ import Layout from '../layouts/Layout.astro';
         <ul class="mt-3 space-y-2 text-sm text-brand-slate">
           <li>
             <span class="block font-medium text-brand-navy">Email</span>
-            <a href="mailto:hello@symmetryhcc.com" class="hover:text-brand-blue">
-              hello@symmetryhcc.com
+            <a href={`mailto:${email}`} class="hover:text-brand-blue">
+              {email}
             </a>
           </li>
           <li>
             <span class="block font-medium text-brand-navy">Phone</span>
-            <a href="tel:+15555550123" class="hover:text-brand-blue">(555) 555-0123</a>
+            <a href={phoneHref} class="hover:text-brand-blue">{phoneDisplay}</a>
           </li>
         </ul>
       </div>
