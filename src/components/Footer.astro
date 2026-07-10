@@ -1,0 +1,56 @@
+---
+import Logo from './Logo.astro';
+
+const year = new Date().getFullYear();
+// REPLACE with the consultant's real LinkedIn profile URL.
+const linkedInUrl = 'https://www.linkedin.com/in/REPLACE-ME';
+---
+
+<footer class="border-t border-brand-mist bg-brand-mist">
+  <div class="mx-auto grid max-w-6xl gap-10 px-6 py-12 md:grid-cols-3">
+    <div>
+      <Logo />
+      <p class="mt-3 text-sm text-brand-slate">
+        Balancing today, optimizing tomorrow &mdash; independent healthcare
+        revenue cycle consulting for providers who want cleaner claims,
+        faster reimbursement, and fewer denials.
+      </p>
+      <a
+        href={linkedInUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-brand-slate hover:text-brand-blue"
+      >
+        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor" aria-hidden="true">
+          <path
+            d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"
+          ></path>
+        </svg>
+        Follow on LinkedIn
+      </a>
+    </div>
+    <div>
+      <p class="text-sm font-semibold text-brand-navy">Contact</p>
+      <ul class="mt-2 space-y-1 text-sm text-brand-slate">
+        <li>
+          <a href="mailto:hello@symmetryhcc.com" class="hover:text-brand-blue">
+            hello@symmetryhcc.com
+          </a>
+        </li>
+        <li><a href="tel:+15555550123" class="hover:text-brand-blue">(555) 555-0123</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-sm font-semibold text-brand-navy">Navigate</p>
+      <ul class="mt-2 space-y-1 text-sm text-brand-slate">
+        <li><a href="/services" class="hover:text-brand-blue">Services</a></li>
+        <li><a href="/about" class="hover:text-brand-blue">About</a></li>
+        <li><a href="/contact" class="hover:text-brand-blue">Contact</a></li>
+        <li><a href="/#consultation" class="hover:text-brand-blue">Schedule a Consultation</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white px-6 py-4 text-center text-xs text-brand-slate">
+    &copy; {year} Symmetry Health Care Consulting. All rights reserved.
+  </div>
+</footer>

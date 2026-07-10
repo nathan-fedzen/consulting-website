@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-navy: #0f2a47;
+  --color-brand-navy-dark: #0a1c30;
+  --color-brand-blue: #2563a8;
+  --color-brand-teal: #1d9a8f;
+  --color-brand-slate: #5b6b7a;
+  --color-brand-mist: #f4f7fa;
+}
+
+body {
+  font-feature-settings: "kern" 1;
+}
+
+/* Hero headline word-by-word reveal (built server-side, runs on every insert) */
+@keyframes hero-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(0.4em);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.reveal-word {
+  display: inline-block;
+  animation: hero-reveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Scroll-triggered section/card reveal, toggled by motion.ts */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(1.25rem);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Slow-drifting texture behind the hero */
+@keyframes hero-drift {
+  from {
+    background-position:
+      0% 0%,
+      0 0;
+  }
+  to {
+    background-position:
+      100% 100%,
+      40px 40px;
+  }
+}
+
+.hero-texture {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(29, 154, 143, 0.35), transparent 45%),
+    radial-gradient(circle at 80% 30%, rgba(37, 99, 168, 0.35), transparent 45%),
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size:
+    140% 140%,
+    140% 140%,
+    40px 40px,
+    40px 40px;
+  animation: hero-drift 18s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-word,
+  [data-reveal],
+  .hero-texture {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

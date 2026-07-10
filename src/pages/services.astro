@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+  {
+    title: 'Revenue Cycle Assessments',
+    description:
+      'A comprehensive review of your front-end registration, charge capture, coding, billing, and collections processes to identify where revenue is being lost and how to recover it.',
+  },
+  {
+    title: 'Denial Management',
+    description:
+      'Detailed root-cause analysis of your claim denials, benchmarked against industry standards, with a prioritized action plan to reduce denial rates and speed up appeals.',
+  },
+  {
+    title: 'Coding & Compliance Audits',
+    description:
+      'Independent chart and claims audits to verify documentation and coding accuracy, reduce compliance exposure, and prepare for payer or regulatory review.',
+  },
+  {
+    title: 'Accounts Receivable Follow-Up',
+    description:
+      'Hands-on review and cleanup of aging A/R, including payer follow-up strategy, write-off policy review, and workflow recommendations to keep A/R days down long-term.',
+  },
+  {
+    title: 'Payer Contracting Support',
+    description:
+      'Analysis of existing payer contracts and reimbursement rates to identify underpayment and support negotiation of better terms.',
+  },
+  {
+    title: 'Interim RCM Leadership',
+    description:
+      'Fractional or interim leadership for your billing office or revenue cycle department during a transition, system conversion, or period of rapid growth.',
+  },
+];
+---
+
+<Layout
+  title="Services"
+  description="Revenue cycle assessments, denial management, coding audits, A/R follow-up, payer contracting support, and interim RCM leadership."
+>
+  <section class="bg-brand-navy">
+    <div class="mx-auto max-w-6xl px-6 py-16">
+      <p class="text-sm font-semibold uppercase tracking-wide text-brand-teal">Services</p>
+      <h1 class="mt-3 text-4xl font-bold text-white">
+        Consulting built around one goal: getting you paid.
+      </h1>
+      <p class="mt-4 max-w-2xl text-slate-200">
+        Every engagement starts with understanding your specific revenue
+        cycle &mdash; then we build a plan around the areas that will move
+        the needle fastest.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 py-20">
+    <div class="grid gap-8 md:grid-cols-2">
+      {
+        services.map((service, i) => (
+          <div
+            data-reveal
+            style={`transition-delay: ${i * 70}ms`}
+            class="rounded-lg border border-brand-mist p-8 transition-all duration-300 hover:-translate-y-1 hover:border-brand-teal/40 hover:shadow-lg"
+          >
+            <h2 class="text-xl font-semibold text-brand-navy">{service.title}</h2>
+            <p class="mt-3 text-brand-slate">{service.description}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div data-reveal class="mt-16 rounded-lg bg-brand-mist p-8 text-center">
+      <h2 class="text-2xl font-bold text-brand-navy">Not sure where to start?</h2>
+      <p class="mx-auto mt-2 max-w-xl text-brand-slate">
+        Most engagements begin with a revenue cycle assessment. Reach out and
+        we'll talk through your situation on a free introductory call.
+      </p>
+      <a
+        href="/#consultation"
+        class="mt-6 inline-block rounded-md bg-brand-navy px-6 py-3 font-semibold text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-brand-blue hover:shadow-lg active:translate-y-0 active:scale-95"
+      >
+        Schedule a Consultation
+      </a>
+    </div>
+  </section>
+</Layout>

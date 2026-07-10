@@ -1,0 +1,405 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const expertise = [
+  {
+    title: 'Revenue Cycle Assessments',
+    description:
+      'A full front-to-back review of your billing, coding, and collections workflow to find where revenue is leaking.',
+  },
+  {
+    title: 'Denial Management',
+    description:
+      'Root-cause analysis of claim denials with a corrective action plan to reduce them going forward.',
+  },
+  {
+    title: 'Coding & Compliance Audits',
+    description:
+      'Independent audits to confirm documentation and coding accuracy and reduce compliance risk.',
+  },
+  {
+    title: 'Interim RCM Leadership',
+    description:
+      'Hands-on, fractional leadership to stabilize your revenue cycle team during a transition or growth phase.',
+  },
+];
+
+// REPLACE with the client's real numbers once available.
+const stats = [
+  { label: 'Years in RCM', target: 15, prefix: '', suffix: '+' },
+  { label: 'Clean Claim Rate', target: 98, prefix: '', suffix: '%' },
+  { label: 'Recovered in Denials', target: 2, prefix: '$', suffix: 'M+' },
+  { label: 'Avg. A/R Reduction', target: 30, prefix: '', suffix: ' Days' },
+];
+
+// REPLACE with the client's actual target client segments.
+const clientTypes = [
+  'Physician Practices',
+  'Ambulatory Surgery Centers',
+  'Behavioral Health Providers',
+  'Specialty Care Groups',
+];
+
+// REPLACE with the client's real affiliations/certifications.
+const credentials = ['HFMA Member', 'CRCR Certified', '15+ Years in Healthcare Finance', 'Independent & Vendor-Neutral'];
+
+// REPLACE with the consultant's real LinkedIn profile URL.
+const linkedInUrl = 'https://www.linkedin.com/in/REPLACE-ME';
+
+// REPLACE with the client's real phone number.
+const phoneDisplay = '(555) 555-0123';
+const phoneHref = 'tel:+15555550123';
+
+const tagline = 'Balancing today, optimizing tomorrow.';
+const taglineWords = tagline.split(' ');
+---
+
+<Layout title="Home">
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-brand-navy">
+    <div class="hero-texture pointer-events-none absolute inset-0" aria-hidden="true"></div>
+    <div
+      class="relative mx-auto grid max-w-6xl items-center gap-10 px-6 py-20 md:grid-cols-2 md:py-28"
+    >
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-wide text-brand-teal">
+          Healthcare Revenue Cycle Consulting
+        </p>
+        <h1 class="mt-4 text-4xl font-bold leading-tight text-white md:text-5xl">
+          {
+            taglineWords.map((word, i) => (
+              <span class="reveal-word" style={`animation-delay: ${i * 70}ms`}>
+                {word}&nbsp;
+              </span>
+            ))
+          }
+        </h1>
+        <p class="mt-6 text-lg text-slate-200">
+          Symmetry Health Care Consulting helps providers streamline billing,
+          reduce denials, and build a revenue cycle that keeps pace with
+          tomorrow's challenges &mdash; independent advice, hands-on
+          execution.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a
+            href="#consultation"
+            class="rounded-md bg-brand-teal px-6 py-3 font-semibold text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-teal-600 hover:shadow-lg active:translate-y-0 active:scale-95"
+          >
+            Schedule a Consultation
+          </a>
+          <a
+            href={phoneHref}
+            class="inline-flex items-center gap-2 rounded-md border border-white/30 px-6 py-3 font-semibold text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-white/10 hover:shadow-lg active:translate-y-0 active:scale-95"
+          >
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true">
+              <path
+                d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.36 11.36 0 003.57.57 1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.49a1 1 0 011 1 11.36 11.36 0 00.57 3.57 1 1 0 01-.25 1.02l-2.19 2.2z"
+              ></path>
+            </svg>
+            Free Discovery Call: {phoneDisplay}
+          </a>
+        </div>
+      </div>
+      <div class="hidden rounded-lg bg-white/5 p-8 ring-1 ring-white/10 backdrop-blur-sm md:block">
+        <dl class="grid grid-cols-2 gap-6 text-white">
+          {
+            stats.map((stat) => (
+              <div>
+                <dt class="text-sm text-slate-300">{stat.label}</dt>
+                <dd
+                  class="mt-1 text-3xl font-bold tabular-nums"
+                  data-counter-target={stat.target}
+                  data-counter-prefix={stat.prefix}
+                  data-counter-suffix={stat.suffix}
+                >
+                  {stat.prefix}0{stat.suffix}
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who We Serve -->
+  <section class="mx-auto max-w-6xl px-6 py-20">
+    <div data-reveal class="max-w-2xl">
+      <p class="text-sm font-semibold uppercase tracking-wide text-brand-teal">Who We Serve</p>
+      <h2 class="mt-3 text-3xl font-bold text-brand-navy">Built for growing healthcare organizations</h2>
+      <p class="mt-4 text-brand-slate">
+        [REPLACE WITH TARGET CLIENT DESCRIPTION: 2-3 sentences on who Symmetry
+        works best with &mdash; practice size, specialty focus, and the kind
+        of revenue cycle challenges they're typically facing when they reach
+        out.]
+      </p>
+    </div>
+    <div class="mt-8 flex flex-wrap gap-3">
+      {
+        clientTypes.map((type, i) => (
+          <span
+            data-reveal
+            style={`transition-delay: ${i * 60}ms`}
+            class="rounded-full border border-brand-mist bg-brand-mist px-4 py-2 text-sm font-medium text-brand-navy"
+          >
+            {type}
+          </span>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Areas of Expertise -->
+  <section class="bg-brand-mist">
+    <div class="mx-auto max-w-6xl px-6 py-20">
+      <div data-reveal class="max-w-2xl">
+        <p class="text-sm font-semibold uppercase tracking-wide text-brand-teal">Areas of Expertise</p>
+        <h2 class="mt-3 text-3xl font-bold text-brand-navy">How we help</h2>
+        <p class="mt-3 text-brand-slate">
+          Practical, experience-driven consulting focused on the parts of your
+          revenue cycle that are costing you the most.
+        </p>
+      </div>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2">
+        {
+          expertise.map((item, i) => (
+            <div
+              data-reveal
+              style={`transition-delay: ${i * 80}ms`}
+              class="rounded-lg border border-white bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-teal/40 hover:shadow-lg"
+            >
+              <h3 class="text-lg font-semibold text-brand-navy">{item.title}</h3>
+              <p class="mt-2 text-sm text-brand-slate">{item.description}</p>
+            </div>
+          ))
+        }
+      </div>
+      <a href="/services" class="mt-8 inline-block font-semibold text-brand-blue hover:underline">
+        See all services &rarr;
+      </a>
+    </div>
+  </section>
+
+  <!-- Credibility -->
+  <section class="mx-auto max-w-6xl px-6 py-20">
+    <div class="grid gap-10 md:grid-cols-3 md:items-center">
+      <div data-reveal class="md:col-span-2">
+        <p class="text-sm font-semibold uppercase tracking-wide text-brand-teal">Credibility</p>
+        <h2 class="mt-3 text-3xl font-bold text-brand-navy">Why providers trust Symmetry</h2>
+        <p class="mt-4 text-brand-slate">
+          With years of hands-on experience inside hospital and physician
+          practice revenue cycles, Symmetry Health Care Consulting brings an
+          independent, no-nonsense perspective to your billing and
+          collections operation &mdash; no software to sell, no conflicts of
+          interest, just a plan built around getting you paid.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          {
+            credentials.map((item, i) => (
+              <span
+                data-reveal
+                style={`transition-delay: ${i * 60}ms`}
+                class="rounded-full border border-brand-teal/30 bg-brand-teal/10 px-4 py-2 text-sm font-medium text-brand-navy"
+              >
+                {item}
+              </span>
+            ))
+          }
+        </div>
+        <a href="/about" class="mt-6 inline-block font-semibold text-brand-blue hover:underline">
+          Learn more about our approach &rarr;
+        </a>
+      </div>
+      <div
+        data-reveal
+        style="transition-delay: 120ms"
+        class="rounded-lg bg-brand-mist p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+      >
+        <p class="text-sm font-semibold text-brand-navy">Ready to talk?</p>
+        <p class="mt-2 text-sm text-brand-slate">
+          Schedule a free discovery call to see where your revenue cycle
+          stands.
+        </p>
+        <a
+          href="#consultation"
+          class="mt-4 inline-block rounded-md bg-brand-navy px-4 py-2 text-sm font-semibold text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-brand-blue hover:shadow-lg active:translate-y-0 active:scale-95"
+        >
+          Schedule a Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Insights (LinkedIn) -->
+  <section class="bg-brand-mist">
+    <div class="mx-auto max-w-6xl px-6 py-20">
+      <div data-reveal class="flex flex-wrap items-end justify-between gap-4">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-wide text-brand-teal">On LinkedIn</p>
+          <h2 class="mt-3 text-3xl font-bold text-brand-navy">Insights from the field</h2>
+          <p class="mt-3 text-brand-slate">
+            Follow along for commentary on denials, payer trends, and what's
+            actually working in healthcare revenue cycle management.
+          </p>
+        </div>
+        <a
+          href={linkedInUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 rounded-md bg-brand-navy px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-brand-blue hover:shadow-lg active:translate-y-0 active:scale-95"
+        >
+          <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true">
+            <path
+              d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"
+            ></path>
+          </svg>
+          Follow on LinkedIn
+        </a>
+      </div>
+
+      <!--
+        To feature a real post: open the post on LinkedIn, click the "..."
+        menu, choose "Embed this post," and paste the resulting <iframe>
+        in place of one of the placeholder cards below.
+      -->
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        {
+          [0, 1, 2].map((i) => (
+            <div
+              data-reveal
+              style={`transition-delay: ${i * 80}ms`}
+              class="flex min-h-[280px] flex-col items-center justify-center rounded-lg border-2 border-dashed border-brand-slate/30 bg-white p-6 text-center"
+            >
+              <svg viewBox="0 0 24 24" class="h-8 w-8 text-brand-slate/40" fill="currentColor" aria-hidden="true">
+                <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
+              </svg>
+              <p class="mt-3 text-sm font-medium text-brand-slate">LinkedIn post embed</p>
+              <p class="mt-1 text-xs text-brand-slate/70">
+                Paste an embed code from a public post here
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Consultation -->
+  <section id="consultation" class="scroll-mt-20 bg-brand-navy">
+    <div class="mx-auto max-w-6xl px-6 py-20">
+      <div data-reveal class="max-w-2xl">
+        <p class="text-sm font-semibold uppercase tracking-wide text-brand-teal">Get Started</p>
+        <h2 class="mt-3 text-3xl font-bold text-white">Schedule a consultation</h2>
+        <p class="mt-3 text-slate-200">
+          Pick a time that works for you below, or send a few details and
+          we'll follow up to find a time. Prefer to talk now? Call for a free
+          discovery call:
+          <a href={phoneHref} class="font-semibold text-brand-teal hover:underline">{phoneDisplay}</a>.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-8 lg:grid-cols-2">
+        <div data-reveal class="rounded-lg border-t-4 border-brand-teal bg-white p-5 shadow-lg">
+          <div class="mb-4 flex items-center gap-3">
+            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-teal/10 text-brand-teal">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M7 2a1 1 0 011 1v1h8V3a1 1 0 112 0v1h1a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2h1V3a1 1 0 011-1zm13 8H4v10h16V10z"
+                ></path>
+              </svg>
+            </span>
+            <p class="text-sm font-semibold text-brand-navy">Book a time directly</p>
+          </div>
+          <!-- REPLACE data-url with the client's real Calendly scheduling link -->
+          <div
+            class="calendly-inline-widget"
+            data-url="https://calendly.com/REPLACE-WITH-CLIENT-CALENDLY-LINK"
+            style="min-width:280px;height:600px;"
+          >
+          </div>
+          <script is:inline src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
+
+        <form
+          name="consultation-request"
+          method="POST"
+          action="/thank-you"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          data-astro-reload
+          data-reveal
+          style="transition-delay: 100ms"
+          class="rounded-lg border-t-4 border-brand-blue bg-white p-6 shadow-lg"
+        >
+          <div class="mb-4 flex items-center gap-3">
+            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-blue/10 text-brand-blue">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm2 0v.01L12 10l7-4.99V5H5zm14 2.24l-6.4 4.57a1 1 0 01-1.2 0L5 7.24V19h14V7.24z"
+                ></path>
+              </svg>
+            </span>
+            <p class="text-sm font-semibold text-brand-navy">Or send us a few details</p>
+          </div>
+          <input type="hidden" name="form-name" value="consultation-request" />
+          <p class="hidden">
+            <label>
+              Don't fill this out if you're human: <input name="bot-field" />
+            </label>
+          </p>
+
+          <div class="grid gap-4">
+            <div>
+              <label for="home-name" class="text-sm font-medium text-brand-navy">Name</label>
+              <input
+                id="home-name"
+                name="name"
+                type="text"
+                required
+                class="mt-1 w-full rounded-md border border-brand-mist px-3 py-2 focus:border-brand-blue focus:outline-none"
+              />
+            </div>
+            <div>
+              <label for="home-email" class="text-sm font-medium text-brand-navy">Email</label>
+              <input
+                id="home-email"
+                name="email"
+                type="email"
+                required
+                class="mt-1 w-full rounded-md border border-brand-mist px-3 py-2 focus:border-brand-blue focus:outline-none"
+              />
+            </div>
+            <div>
+              <label for="home-phone" class="text-sm font-medium text-brand-navy">Phone (optional)</label>
+              <input
+                id="home-phone"
+                name="phone"
+                type="tel"
+                class="mt-1 w-full rounded-md border border-brand-mist px-3 py-2 focus:border-brand-blue focus:outline-none"
+              />
+            </div>
+            <div>
+              <label for="home-message" class="text-sm font-medium text-brand-navy">
+                What would you like to discuss?
+              </label>
+              <textarea
+                id="home-message"
+                name="message"
+                rows="4"
+                required
+                class="mt-1 w-full rounded-md border border-brand-mist px-3 py-2 focus:border-brand-blue focus:outline-none"
+              ></textarea>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="mt-6 w-full rounded-md bg-brand-navy px-6 py-3 font-semibold text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-brand-blue hover:shadow-lg active:translate-y-0 active:scale-95"
+          >
+            Request a Consultation
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</Layout>

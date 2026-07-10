@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// REPLACE with the consultant's real education history.
+const education = [
+  'REPLACE: e.g. M.H.A., Healthcare Administration, [University]',
+  'REPLACE: e.g. B.S., Finance, [University]',
+];
+
+// REPLACE with the consultant's real certifications.
+const certifications = [
+  'REPLACE: e.g. CRCR (Certified Revenue Cycle Representative)',
+  'REPLACE: e.g. CHFP (Certified Healthcare Financial Professional)',
+  'REPLACE: e.g. CPC (Certified Professional Coder)',
+];
+---
+
+<Layout
+  title="About"
+  description="Learn about Symmetry Health Care Consulting and our approach to healthcare revenue cycle consulting."
+>
+  <section class="mx-auto max-w-6xl px-6 py-20">
+    <div class="grid gap-12 md:grid-cols-3">
+      <div data-reveal class="md:col-span-2">
+        <p class="text-sm font-semibold uppercase tracking-wide text-brand-teal">About</p>
+        <div class="mt-4 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+          <div
+            class="flex h-32 w-32 shrink-0 items-center justify-center rounded-full bg-brand-mist text-brand-slate/50 ring-1 ring-brand-mist"
+            aria-hidden="true"
+          >
+            <!-- REPLACE with a real professional headshot -->
+            <svg viewBox="0 0 24 24" class="h-14 w-14" fill="currentColor">
+              <path
+                d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-4.42 0-8 2.24-8 5v3h16v-3c0-2.76-3.58-5-8-5z"
+              ></path>
+            </svg>
+          </div>
+          <h1 class="text-4xl font-bold text-brand-navy">[Consultant Name], Founder</h1>
+        </div>
+
+        <h2 class="mt-8 text-xl font-semibold text-brand-navy">Background</h2>
+        <p class="mt-3 text-brand-slate">
+          [REPLACE WITH BIO: 2-3 paragraphs on background &mdash; years of
+          experience in healthcare revenue cycle management, prior roles
+          (health system, physician practice, payer side, etc.), and the
+          kinds of organizations you've worked with.]
+        </p>
+
+        <h2 class="mt-8 text-xl font-semibold text-brand-navy">Why I Started Symmetry</h2>
+        <p class="mt-3 text-brand-slate">
+          [REPLACE WITH FOUNDING STORY: What led to starting an independent
+          consulting practice &mdash; a gap you kept seeing in the industry,
+          a frustration with vendor-driven advice, a moment that made you
+          want to do this on your own terms.]
+        </p>
+        <p class="mt-4 text-brand-slate">
+          [REPLACE WITH PHILOSOPHY: What makes your approach different &mdash;
+          e.g. independence from any software or billing vendor, hands-on
+          involvement rather than a slide deck, focus on practical fixes
+          your team can sustain after the engagement ends.]
+        </p>
+      </div>
+      <div data-reveal style="transition-delay: 120ms" class="space-y-6">
+        <div class="rounded-lg bg-brand-mist p-6">
+          <p class="text-sm font-semibold text-brand-navy">Education</p>
+          <ul class="mt-3 space-y-3 text-sm text-brand-slate">
+            {education.map((item) => <li class="border-l-2 border-brand-teal pl-3">{item}</li>)}
+          </ul>
+        </div>
+        <div class="rounded-lg bg-brand-mist p-6">
+          <p class="text-sm font-semibold text-brand-navy">Certifications</p>
+          <ul class="mt-3 space-y-3 text-sm text-brand-slate">
+            {certifications.map((item) => <li class="border-l-2 border-brand-teal pl-3">{item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div data-reveal class="mt-16 rounded-lg bg-brand-navy p-10 text-center">
+      <h2 class="text-2xl font-bold text-white">Let's talk about your revenue cycle</h2>
+      <a
+        href="/#consultation"
+        class="mt-6 inline-block rounded-md bg-brand-teal px-6 py-3 font-semibold text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-teal-600 hover:shadow-lg active:translate-y-0 active:scale-95"
+      >
+        Schedule a Consultation
+      </a>
+    </div>
+  </section>
+</Layout>

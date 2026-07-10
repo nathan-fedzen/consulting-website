@@ -1,0 +1,41 @@
+---
+import Logo from './Logo.astro';
+
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/services', label: 'Services' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+const currentPath = Astro.url.pathname;
+---
+
+<header class="border-b border-brand-mist bg-white/95 backdrop-blur sticky top-0 z-50">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <Logo />
+    <nav class="hidden gap-8 text-sm font-medium text-brand-slate md:flex">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              'relative py-1 transition-colors hover:text-brand-blue',
+              'after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-brand-blue after:transition-transform after:duration-200 hover:after:scale-x-100',
+              (currentPath === link.href ||
+                (link.href !== '/' && currentPath.startsWith(link.href))) &&
+                'text-brand-navy font-semibold after:scale-x-100',
+            ]}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+    <a
+      href="/#consultation"
+      class="hidden rounded-md bg-brand-navy px-4 py-2 text-sm font-semibold text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-brand-blue hover:shadow-lg active:translate-y-0 active:scale-95 md:inline-block"
+    >
+      Schedule a Consultation
+    </a>
+  </div>
+</header>
