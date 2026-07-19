@@ -1,76 +1,121 @@
-heroEyebrow: "Healthcare Revenue Cycle Consulting"
-heroSubtext: >-
-  Symmetry Health Care Consulting helps providers streamline billing, reduce
-  denials, and build a revenue cycle that keeps pace with tomorrow's
-  challenges — independent advice, hands-on execution.
+heroEyebrow: Healthcare Revenue Cycle Consulting
+heroSubtext: >
+  
 
+  At **Symmetry Healthcare Consulting**, we help healthcare organizations achieve operational excellence, financial stability, and sustainable growth. We partner with hospitals, health systems, physician practices, ambulatory care organizations, and healthcare leaders to solve complex operational and revenue cycle challenges with practical, data-driven solutions.
+
+
+  Our mission is simple: **bring balance to healthcare operations by aligning people, processes, and performance.**
+
+
+  Healthcare organizations face increasing pressure to improve financial outcomes while maintaining exceptional patient care. From reimbursement challenges and regulatory changes to workforce shortages and operational inefficiencies, today's healthcare environment requires strategic leadership and innovative solutions. Symmetry Healthcare Consulting provides the expertise needed to navigate these challenges with confidence.
+
+
+  Our consulting services are tailored to each organization's unique goals and may include revenue cycle optimization, denial management, physician enterprise operations, performance improvement, operational assessments, workflow redesign, interim leadership, project management, and strategic planning. We work collaboratively with leadership teams to identify opportunities, implement measurable improvements, and create lasting organizational success.
+
+
+  At Symmetry, we believe successful consulting extends beyond recommendations. We become trusted partners, working alongside our clients to develop actionable strategies, improve key performance indicators, strengthen operational processes, and create a culture of continuous improvement.
+
+
+  Whether your organization is looking to increase revenue, improve operational efficiency, reduce denials, optimize workflows, or prepare for future growth, Symmetry Healthcare Consulting is committed to delivering solutions that produce measurable, lasting results.
+
+
+  **Together, we bring balance to healthcare performance.**
 stats:
-  - label: "Years in RCM"
+  - label: Years in RCM
     value: 15
-    suffix: "+"
-  - label: "Clean Claim Rate"
+    suffix: +
+  - label: Clean Claim Rate
     value: 98
     suffix: "%"
-  - label: "Recovered in Denials"
+  - label: Recovered in Denials
     value: 2
-    prefix: "$"
-    suffix: "M+"
-  - label: "Avg. A/R Reduction"
+    prefix: $
+    suffix: M+
+  - label: Avg. A/R Reduction
     value: 30
     suffix: " Days"
+whoWeServeHeading: Built for growing healthcare organizations
+whoWeServeText: >
+  
 
-whoWeServeHeading: "Built for growing healthcare organizations"
-whoWeServeText: >-
-  [REPLACE WITH TARGET CLIENT DESCRIPTION: 2-3 sentences on who Symmetry
-  works best with — practice size, specialty focus, and the kind of revenue
-  cycle challenges they're typically facing when they reach out.]
+  Symmetry Healthcare Consulting partners with healthcare organizations of all sizes to improve operational performance, strengthen financial outcomes, and support sustainable growth. We understand that every organization faces unique challenges, which is why we deliver customized solutions tailored to each client's goals, culture, and strategic priorities.
 
+
+  ## Hospitals & Health Systems
+
+
+  We work with acute care hospitals and integrated health systems to improve revenue cycle performance, streamline operations, reduce denials, strengthen financial processes, and support organization-wide performance improvement initiatives.
+
+
+  ## Physician Practices & Medical Groups
+
+
+  From independent practices to large multispecialty physician groups, we help providers optimize front-end operations, improve patient access, enhance revenue cycle workflows, and create efficient, patient-centered processes.
+
+
+  ## Ambulatory & Outpatient Care Organizations
+
+
+  We partner with ambulatory surgery centers, specialty clinics, and outpatient facilities to improve operational efficiency, maximize reimbursement, and enhance the patient experience while supporting long-term financial sustainability.
+
+
+  ## Healthcare Executives & Leadership Teams
+
+
+  We serve executives, directors, managers, and physician leaders seeking strategic guidance on organizational transformation, operational excellence, leadership development, change management, and performance improvement.
+
+
+  ## Healthcare Startups & Emerging Organizations
+
+
+  Growing healthcare organizations require scalable systems and operational strategies. We help startups and emerging healthcare companies build strong operational foundations, develop efficient workflows, and prepare for sustainable growth.
+
+
+  ## Private Equity & Healthcare Investors
+
+
+  We support investors and healthcare organizations during acquisitions, integrations, and operational improvement initiatives by providing revenue cycle assessments, operational due diligence, performance evaluations, and strategic recommendations.
+
+
+  ## Organizations Undergoing Transformation
+
+
+  Whether implementing new technology, restructuring operations, expanding service lines, or responding to changing reimbursement models, we help organizations navigate change with confidence while minimizing disruption and maintaining operational performance.
+
+
+  No matter where your organization is in its journey, Symmetry Healthcare Consulting is committed to delivering practical, data-driven solutions that improve performance, strengthen financial health, and support exceptional patient care.
 clientTypes:
-  - "Physician Practices"
-  - "Ambulatory Surgery Centers"
-  - "Behavioral Health Providers"
-  - "Specialty Care Groups"
-
+  - Physician Practices
+  - Ambulatory Surgery Centers
+  - Behavioral Health Providers
+  - Specialty Care Groups
 expertise:
-  - title: "Revenue Cycle Assessments"
-    description: >-
-      A full front-to-back review of your billing, coding, and collections
-      workflow to find where revenue is leaking.
-  - title: "Denial Management"
-    description: >-
-      Root-cause analysis of claim denials with a corrective action plan to
-      reduce them going forward.
-  - title: "Coding & Compliance Audits"
-    description: >-
-      Independent audits to confirm documentation and coding accuracy and
+  - title: Revenue Cycle Assessments
+    description: A full front-to-back review of your billing, coding, and
+      collections workflow to find where revenue is leaking.
+  - title: Denial Management
+    description: Root-cause analysis of claim denials with a corrective action plan
+      to reduce them going forward.
+  - title: Coding & Compliance Audits
+    description: Independent audits to confirm documentation and coding accuracy and
       reduce compliance risk.
-  - title: "Interim RCM Leadership"
-    description: >-
-      Hands-on, fractional leadership to stabilize your revenue cycle team
-      during a transition or growth phase.
-
-credibilityText: >-
-  With years of hands-on experience inside hospital and physician practice
-  revenue cycles, Symmetry Health Care Consulting brings an independent,
-  no-nonsense perspective to your billing and collections operation — no
-  software to sell, no conflicts of interest, just a plan built around
+  - title: Interim RCM Leadership
+    description: Hands-on, fractional leadership to stabilize your revenue cycle
+      team during a transition or growth phase.
+credibilityText: With years of hands-on experience inside hospital and physician
+  practice revenue cycles, Symmetry Health Care Consulting brings an
+  independent, no-nonsense perspective to your billing and collections operation
+  — no software to sell, no conflicts of interest, just a plan built around
   getting you paid.
-
 credentials:
-  - "HFMA Member"
-  - "CRCR Certified"
-  - "15+ Years in Healthcare Finance"
-  - "Independent & Vendor-Neutral"
-
-linkedInHeading: "Insights from the field"
-linkedInText: >-
-  Follow along for commentary on denials, payer trends, and what's actually
-  working in healthcare revenue cycle management.
-
-# Paste a LinkedIn "Embed this post" <iframe> code per entry (up to 3 shown).
-# Leave empty to show placeholder cards instead.
+  - HFMA Member
+  - CRCR Certified
+  - 15+ Years in Healthcare Finance
+  - Independent & Vendor-Neutral
+linkedInHeading: Insights from the field
+linkedInText: Follow along for commentary on denials, payer trends, and what's
+  actually working in healthcare revenue cycle management.
 linkedinEmbeds: []
-
-consultationText: >-
-  Pick a time that works for you below, or send a few details and we'll
-  follow up to find a time.
+consultationText: Pick a time that works for you below, or send a few details
+  and we'll follow up to find a time.
